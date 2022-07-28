@@ -20,7 +20,7 @@ export const createProject = async (req, res) =>{
     body('images').trim().escape();
     body('skills').trim().escape();
     const { title, description, summary, url, code, image, images, skills } = req.body;
-    const newProject = new PostMessage({ title, description, summary, url, code, image, images, skills  })    
+    const newProject = new Project({ title, description, summary, url, code, image, images, skills  })    
     try{
         await newProject.save();
         res.status(201).json(newProject);
